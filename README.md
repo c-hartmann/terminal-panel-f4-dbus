@@ -1,5 +1,7 @@
 # Terminal Pane [F4] [D-Bus]
 
+open the Terminal panel
+
 ![logo](assets/images/terminal-panel-f4-dbus-logo.png)
 
 A KDE 5 dolphin context menu extension (aka Service Menu), that let's you
