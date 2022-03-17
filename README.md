@@ -1,5 +1,7 @@
 # Terminal Pane [F4] [D-Bus]
 
+![logo](assets/images/terminal-panel-f4-dbus-logo.png)
+
 A KDE 5 dolphin context menu extension (aka Service Menu), that let's you
 open the Terminal panel as with F4 (if bound to) via D-BUS from within the
 context menu for folders.
