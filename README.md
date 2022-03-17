@@ -17,4 +17,4 @@ located under "Actions").
 This is a clean room implementation based on D-Bus, therefore it lacks any
 dependencies beside qdbus(1), that should come basicly always with KDE.
 
-![in-action-screenshot](assets/images/terminal-panel-f4-dbus-screen.png)
+no screen yet due to ` ! [remote rejected] main -> main (Internal Server Error)`
