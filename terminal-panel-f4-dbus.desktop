@@ -1,0 +1,34 @@
+#
+#	servicemenus-terminal-panel-f4-dbus.desktop Version 0.9.0
+#	Copyright (C) 2022 Christian Hartmann <hartmann.christian@gmail.com>
+#
+#	SPDX-FileCopyrightText: 2022 Christian Hartmann <hartmann.christian@gmail.com>
+#
+#	SPDX-License-Identifier: LicenseRef-KDE-Accepted-GPL
+#
+#	This program is free software; you can redistribute it and/or
+#	modify it under the terms of the GNU General Public License as
+#	published by the Free Software Foundation; either version 3 of
+#	the license or (at your option) at any later version that is
+#	accepted by the membership of KDE e.V. (or its successor
+#	approved by the membership of KDE e.V.), which shall act as a
+#	proxy as defined in Section 14 of version 3 of the license.
+#
+#	This program is distributed in the hope that it will be useful,
+#	but WITHOUT ANY WARRANTY; without even the implied warranty of
+#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#	GNU General Public License for more details.
+#
+
+[Desktop Entry]
+Type=Service
+MimeType=inode/directory;
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+Icon=akonadiconsole
+Actions=Terminal
+TryExec=qdbus
+
+[Desktop Action Terminal]
+Name=Terminal
+Icon=akonadiconsole
+Exec=bash -c 'for sname in $( qdbus "org.kde.dolphin-*" ) ; do isactive=false ; isactive=$( qdbus "$sname" "/dolphin/Dolphin_1" "org.qtproject.Qt.QWidget.isActiveWindow" ) ; $isactive && qdbus "$sname" "/dolphin/Dolphin_1/actions/show_terminal_panel" "org.qtproject.Qt.QAction.trigger" ; done'
