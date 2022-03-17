@@ -1,4 +1,4 @@
-# Terminal Pane [F4] [D-Bus]
+# Terminal Pane
 
 A KDE 5 dolphin context menu extension (aka Service Menu), that let's you
 open the Terminal panel as with F4 (if bound to) via D-BUS from within the
