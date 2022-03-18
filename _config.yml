@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 title: Toggle Terminal Panel (F4) (D-Bus)
 description: A KDE Plasma Dolphin Service Menu
-logo: https://raw.githubusercontent.com/c-hartmann/terminal-panel-f4-dbus/terminal-panel-f4-dbus-logo.png
+logo: https://raw.githubusercontent.com/c-hartmann/terminal-panel-f4-dbus/main/assets/images/terminal-panel-f4-dbus-logo.png
 show_downloads: true
