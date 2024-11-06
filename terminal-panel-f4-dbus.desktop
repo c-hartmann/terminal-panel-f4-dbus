@@ -19,16 +19,22 @@
 #	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 #	GNU General Public License for more details.
 #
+# TODO: match remote directories. text/x-uri is not sufficient
+#       X-KDE-Protocol?
+#       https://develop.kde.org/docs/apps/dolphin/service-menus/#advanced-properties
 
 [Desktop Entry]
+Name=Terminal Panel (F4)
 Type=Service
-MimeType=inode/directory;
+MimeType=inode/directory;inode/mount-point;inode/*;
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+X-KDE-Priority=TopLevel
 Icon=akonadiconsole
-Actions=Terminal
-TryExec=qdbus
+InitialPreference=60
+Actions=ToggleTerminalPane;
+# TryExec=qdbus
 
-[Desktop Action Terminal]
+[Desktop Action ToggleTerminalPane]
 Name=Terminal	F4
 Name[ar]=الطرفية
 Name[bg]=Терминал	F4
@@ -71,4 +77,4 @@ Name[wa]=Terminå	F4
 Name[zh_CN]=终端	F4
 Name[zh_TW]=終端機	F4
 Icon=akonadiconsole
-Exec=bash -c 'for sname in $( qdbus "org.kde.dolphin-*" ) ; do isactive=false ; isactive=$( qdbus "$sname" "/dolphin/Dolphin_1" "org.qtproject.Qt.QWidget.isActiveWindow" ) ; $isactive && qdbus "$sname" "/dolphin/Dolphin_1/actions/show_terminal_panel" "org.qtproject.Qt.QAction.trigger" ; done'
+Exec=bash -c 'qdbus_avail=($(type -p qdbus qdbus6 qdbus5 qdbus-qt6 qdbus-qt5)); qdbus=${qdbus_avail[0]}; [[ -z "$qdbus" ]] && kdialog --error "qdbus command not found" && exit 1; for sname in $($qdbus "org.kde.dolphin-*"); do isactive=false; isactive=$($qdbus "$sname" "/dolphin/Dolphin_1" "org.qtproject.Qt.QWidget.isActiveWindow"); $isactive && $qdbus "$sname" "/dolphin/Dolphin_1/actions/show_terminal_panel" "org.qtproject.Qt.QAction.trigger"; done'
